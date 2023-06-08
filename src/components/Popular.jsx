@@ -25,9 +25,6 @@ function Popular() {
      setPopular(data.recipes);
      console.log(data);
     }
-
-
-
   }
 
   return (
@@ -63,7 +60,7 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-   min-height: 25rem;
+   min-height: 16rem;
    border-radius: 2rem;
    overflow: hidden;
    position: relative;
