@@ -6,10 +6,10 @@ import { Route, Routes } from 'react-router-dom'
 
 function Pages() {
   return (
-    <Routes>
+     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='/Cuisine' element={<Cuisine />} />
-    </Routes>
+      <Route path='/Cuisine/:type' element={<Cuisine />} />
+     </Routes>
   )
 }
 
