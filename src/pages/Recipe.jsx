@@ -30,16 +30,28 @@ function Recipe() {
       <Info>
         <Button className={activeTab === 'instructions' ? 'active' : ''} onClick={() => setActiveTab('instructions')}>Instructions</Button>
         <Button className={activeTab === 'ingredients' ? 'active' : ''} onClick={() => setActiveTab('ingredients')}>Ingredients</Button>
-        <div>
-          {details.summary}
+        {activeTab === "instructions" && (
+          <div>
+          <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
+          <h3 dangerouslySetInnerHTML={{__html: details.instructions}}></h3>
         </div>
+        )}
+
+        {activeTab === "ingredients" && (
+          <ul>
+          {details.extendedIngredients.map((ingredient) => 
+           <li key={ingredient.id}>{ingredient.original}</li>
+          )}
+        </ul>
+        )}
+        
       </Info>
     </DetailWrapper>
   )
 }
 
 const DetailWrapper = styled.div`
-   margin-top: 10rem;
+   margin-top: 7rem;
    margin-bottom: 5rem;
    display: flex;
    .active{
@@ -67,7 +79,7 @@ const Button = styled.button`
 `
 
 const Info = styled.div`
-   margin-left: 10rem;
+   margin-left: 2rem;
 `
 
 export default Recipe
